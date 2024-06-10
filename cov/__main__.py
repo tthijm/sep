@@ -1,12 +1,13 @@
-import sys, subprocess
-from utils import results
+import sys
+import pytest
+from cov.utils import results
 
 
 def main() -> None:
     arguments = sys.argv
 
-    subprocess.run(arguments[1:])
-    print(results) # <--
+    pytest.main(arguments[1:])
+    print(results)
 
 
 if __name__ == "__main__":
