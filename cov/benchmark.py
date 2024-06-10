@@ -11,3 +11,10 @@ class Benchmark:
 
     def is_valid(self, branch_id: int) -> bool:
         return 0 <= branch_id < self.amount_of_branches
+
+    def get_coverage(self) -> int:
+        return self.reached_branches.count(True) * 100 // self.amount_of_branches
+
+    def get_missing(self) -> str:
+        missing = [str(i) for i, v in enumerate(self.reached_branches) if v is False]
+        return " ".join(missing)

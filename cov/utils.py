@@ -1,5 +1,6 @@
 from typing import Dict, Callable
 from cov.benchmark import Benchmark
+from tabulate import tabulate
 import inspect
 
 __all__ = ["test", "mark"]
@@ -33,4 +34,9 @@ def mark(branch_id: int) -> None:
 
 
 def print_results() -> None:
-    print(results)
+    header = ["function name", "branch %", "missing branches"]
+    rows = [
+        (function_name, benchmark.get_coverage(), benchmark.get_missing()) for function_name, benchmark in results.items()
+    ]
+
+    print(tabulate(rows, header))
