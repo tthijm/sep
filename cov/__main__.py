@@ -1,13 +1,13 @@
 import sys
 import pytest
-from cov.utils import results
+import cov.utils
 
 
 def main() -> None:
     arguments = sys.argv
 
     pytest.main(arguments[1:])
-    print(results)
+    cov.utils.print_results()
 
 
 if __name__ == "__main__":

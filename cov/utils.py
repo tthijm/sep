@@ -1,14 +1,8 @@
-from typing import Set, Dict, Callable
-from inspect import stack
+from typing import Dict, Callable
+from cov.benchmark import Benchmark
+import inspect
 
 __all__ = ["test", "mark"]
-
-
-class Benchmark:
-    def __init__(self, amount_of_branches: int) -> None:
-        self.amount_of_branches: int = amount_of_branches
-        self.reached: Set[int] = set()
-
 
 results: Dict[str, Benchmark] = {}
 
@@ -29,9 +23,14 @@ def test(amount_of_branches: int) -> Callable:
 
 
 def mark(branch_id: int) -> None:
-    function_name = stack()[1].function
+    function_name = inspect.stack()[1].function
+    benchmark = results.get(function_name)
 
-    if function_name not in results:
+    if benchmark is None or benchmark.is_valid(branch_id) is False:
         raise KeyError()
 
-    results[function_name].reached.add(branch_id)
+    benchmark.mark(branch_id)
+
+
+def print_results() -> None:
+    print(results)
