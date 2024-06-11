@@ -1,13 +1,13 @@
 import sys
 import pytest
-import cov.utils
+import cov.cov
 
 
 def main() -> None:
     arguments = sys.argv
 
     pytest.main(arguments[1:])
-    cov.utils.print_results()
+    cov.cov.print_table()
 
 
 if __name__ == "__main__":
