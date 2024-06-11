@@ -34,9 +34,10 @@ def mark(branch_id: int) -> None:
 
 
 def print_results() -> None:
-    header = ["function name", "branch %", "missing branches"]
+    header = ["Function", "Branch %", "Branches", "Missing"]
     rows = [
-        (function_name, benchmark.get_coverage(), benchmark.get_missing()) for function_name, benchmark in results.items()
+        (function_name, benchmark.get_coverage(), benchmark.amount_of_branches, benchmark.get_missing())
+        for function_name, benchmark in results.items()
     ]
 
     print(tabulate(rows, header))
