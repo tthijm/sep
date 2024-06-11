@@ -19,6 +19,8 @@ After installing the dependencies and executing `coverage run -m pytest` we get 
 
 Running `coverage html` and opening the document in the browser gives the following:
 ![23724](https://github.com/tthijm/sep/assets/74216566/5991a9ef-81a1-494f-8016-700ee72d375e)
+![4629](https://github.com/tthijm/sep/assets/74216566/83bdba3d-9217-4be0-a67c-9ae2f0db3ad9)
+
 
 ### Your own coverage tool
 
