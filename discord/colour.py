@@ -26,7 +26,6 @@ from __future__ import annotations
 import colorsys
 import random
 import re
-from cov import test, mark
 
 from typing import TYPE_CHECKING, Optional, Tuple, Union
 
@@ -52,22 +51,17 @@ def parse_hex_number(argument: str) -> Colour:
     else:
         return Color(value=value)
 
-@test(5)
+
 def parse_rgb_number(number: str) -> int:
     if number[-1] == '%':
-        mark(0)
         value = float(number[:-1])
         if not (0 <= value <= 100):
-            mark(1)
             raise ValueError('rgb percentage can only be between 0 to 100')
-        mark(2)
         return round(255 * (value / 100))
 
     value = int(number)
     if not (0 <= value <= 255):
-        mark(3)
         raise ValueError('rgb number can only be between 0 to 255')
-    mark(4)
     return value
 
 
