@@ -71,7 +71,6 @@ import types
 import typing
 import warnings
 import logging
-from cov import test, mark
 
 import yarl
 
@@ -1395,20 +1394,15 @@ def _to_kebab_case(text: str) -> str:
     return CAMEL_CASE_REGEX.sub('-', text).lower()
 
 
-@test(4)
 def _human_join(seq: Sequence[str], /, *, delimiter: str = ', ', final: str = 'or') -> str:
     size = len(seq)
     if size == 0:
-        mark(0)
         return ''
 
     if size == 1:
-        mark(1)
         return seq[0]
 
     if size == 2:
-        mark(2)
         return f'{seq[0]} {final} {seq[1]}'
 
-    mark(3)
     return delimiter.join(seq[:-1]) + f' {final} {seq[-1]}'
