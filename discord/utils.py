@@ -71,6 +71,7 @@ import types
 import typing
 import warnings
 import logging
+from cov import test, mark
 
 import yarl
 
@@ -1084,14 +1085,18 @@ PY_310 = sys.version_info >= (3, 10)
 PY_312 = sys.version_info >= (3, 12)
 
 
+@test(3)
 def flatten_literal_params(parameters: Iterable[Any]) -> Tuple[Any, ...]:
     params = []
     literal_cls = type(Literal[0])
     for p in parameters:
         if isinstance(p, literal_cls):
+            mark(1)
             params.extend(p.__args__)
         else:
+            mark(2)
             params.append(p)
+    mark(0)
     return tuple(params)
 
 
