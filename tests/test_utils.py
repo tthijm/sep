@@ -339,10 +339,12 @@ def test_format_dt(dt: datetime.datetime, style: typing.Optional[utils.Timestamp
 @pytest.mark.parametrize(
     ("parameters", "flattened"),
     [
+        # Python 3.8: Literal[Literal[0]].__args__ == (Literal[0],)
+        # Python 3.x: Literal[Literal[0]].__args__ == (0,)
         ([], ()),
         ([0, 1, 2], (0, 1, 2)),
         ([0, typing.Literal["a", 1], "b"], (0, "a", 1, "b")),
-        ([0, "a", typing.Literal[1, typing.Literal["b", 2]], typing.Literal["c"]], (0, "a", 1, "b", 2, "c")),
+        ([0, "a", typing.Literal[1, "b", 2], typing.Literal["c"]], (0, "a", 1, "b", 2, "c")),
     ],
 )
 def test_flatten_literal_params(parameters: typing.Iterable[typing.Any], flattened: typing.Tuple[typing.Any, ...]) -> None:
