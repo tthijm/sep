@@ -175,7 +175,7 @@ class Colour:
         rgb = colorsys.hsv_to_rgb(h, s, v)
         return cls.from_rgb(*(int(x * 255) for x in rgb))
 
-    @test()
+    @test(7)
     @classmethod
     def from_str(cls, value: str) -> Colour:
         """Constructs a :class:`Colour` from a string.
