@@ -38,13 +38,21 @@ Running `coverage html` and opening the document in the browser gives the follow
 
 <Provide the same kind of information provided for Function 1>
 
-Thijmen
+#### Thijmen
 
 \_human_join
 
 [commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
 
 ![](./assets/_human_join_custom.png)
+
+#### Frank
+
+\parse_rgb_number
+
+[commit](https://github.com/tthijm/sep/commit/45156c574d1be11a2da25e0f74efe866d3e2cc97)
+
+![](./assets/parse_rgb_number_custom.png)
 
 ## Coverage improvement
 
@@ -68,7 +76,7 @@ Thijmen
 
 <Provide the same kind of information provided for Test 1>
 
-Thijmen
+#### Thijmen
 
 test\_\_human_join
 
@@ -80,6 +88,18 @@ test\_\_human_join
 
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
+
+#### Frank
+
+tests\test_colour.py
+
+[commit](https://github.com/tthijm/sep/commit/51a7b35a9b4af8058cc9d513085b02306ae63a43)
+
+![](./assets/parse_rgb_number_before.png)
+
+![](./assets/parse_rgb_number_after.png)
+
+The coverage of the function has improved from the originaly 60% to 100%, since the other two branches (1 and 3) were also covered.
 
 ### Overall
 
