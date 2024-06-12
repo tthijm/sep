@@ -334,3 +334,16 @@ def test_is_inside_class():
 )
 def test_format_dt(dt: datetime.datetime, style: typing.Optional[utils.TimestampStyle], formatted: str):
     assert utils.format_dt(dt, style=style) == formatted
+
+
+@pytest.mark.parametrize(
+    ("parameters", "flattened"),
+    [
+        ([], ()),
+        ([0, 1, 2], (0, 1, 2)),
+        ([0, typing.Literal["a", 1], "b"], (0, "a", 1, "b")),
+        ([0, "a", typing.Literal[1, typing.Literal["b", 2]], typing.Literal["c"]], (0, "a", 1, "b", 2, "c")),
+    ],
+)
+def test_flatten_literal_params(parameters: typing.Iterable[typing.Any], flattened: typing.Tuple[typing.Any, ...]) -> None:
+    assert utils.flatten_literal_params(parameters) == flattened
