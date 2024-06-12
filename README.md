@@ -14,9 +14,13 @@ Programming language: <TODO>
 
 ### Existing tool
 
-<Inform the name of the existing tool that was executed and how it was executed>
+The coverage tool [coverage.py](https://coverage.readthedocs.io/en/7.5.3/) was used for this project.
+After installing the dependencies and executing `coverage run -m pytest` we get the following output:
+![63781](https://github.com/tthijm/sep/assets/74216566/0962f4e0-a7f4-45c0-ab12-59110c55d6c2)
 
-<Show the coverage results provided by the existing tool with a screenshot>
+Running `coverage html` and opening the document in the browser gives the following:
+![23724](https://github.com/tthijm/sep/assets/74216566/5991a9ef-81a1-494f-8016-700ee72d375e)
+![4629](https://github.com/tthijm/sep/assets/74216566/83bdba3d-9217-4be0-a67c-9ae2f0db3ad9)
 
 ### Your own coverage tool
 
@@ -33,6 +37,14 @@ Programming language: <TODO>
 <Function 2 name>
 
 <Provide the same kind of information provided for Function 1>
+
+Thijmen
+
+\_human_join
+
+[commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
+
+![](./assets/_human_join_custom.png)
 
 ## Coverage improvement
 
@@ -55,6 +67,19 @@ Programming language: <TODO>
 <Test 2>
 
 <Provide the same kind of information provided for Test 1>
+
+Thijmen
+
+test\_\_human_join
+
+[commit](https://github.com/tthijm/sep/commit/92796db0afb5feff4b51b3c7e4874c2ba0eae7b9)
+
+![](./assets/_human_join_before.png)
+
+![](./assets/_human_join_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
 ### Overall
 
