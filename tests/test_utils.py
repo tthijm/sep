@@ -349,3 +349,11 @@ def test_format_dt(dt: datetime.datetime, style: typing.Optional[utils.Timestamp
 )
 def test_flatten_literal_params(parameters: typing.Iterable[typing.Any], flattened: typing.Tuple[typing.Any, ...]) -> None:
     assert utils.flatten_literal_params(parameters) == flattened
+
+
+def test__human_join() -> None:
+    assert utils._human_join([]) == ""
+    assert utils._human_join(["cat"]) == "cat"
+    assert utils._human_join(["cat", "dog"]) == "cat or dog"
+    assert utils._human_join(["cat", "dog", "fish"]) == "cat, dog or fish"
+    assert utils._human_join(["cat", "dog", "fish", "bird"], delimiter="; ", final="and") == "cat; dog; fish and bird"

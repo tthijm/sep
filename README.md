@@ -46,6 +46,12 @@ flatten_literal_params
 
 ![](./assets/flatten_literal_params_custom.png)
 
+\_human_join
+
+[commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
+
+![](./assets/_human_join_custom.png)
+
 ## Coverage improvement
 
 ### Individual tests
@@ -80,6 +86,17 @@ test_flatten_literal_params
 
 The coverage improvement is +100%.
 The coverage has been improved, because `flatten_literal_params` used to not be tested, while the new `test_flatten_literal_params` considers every branch to be taken.
+
+test\_\_human_join
+
+[commit](https://github.com/tthijm/sep/commit/92796db0afb5feff4b51b3c7e4874c2ba0eae7b9)
+
+![](./assets/_human_join_before.png)
+
+![](./assets/_human_join_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
 ### Overall
 
