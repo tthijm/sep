@@ -116,7 +116,7 @@ test_get_find
 
 ![](./assets/_get_after.png)
 
-The coverage improvement is 142%.
+The coverage improvement is 88%.
 The coverage has been improved, because the previous test_get_find only considered the sync and asyn get with single values. I extended the test so that it tests these functions with multiple attributes as well, this way it currently reaches more branches and therefore the coverage improved. Additionally the previous test did not consider the case where we loop through the array and we don't find the corresponding item we are looking for, we added this case by giving an empty array as argument, which causes the code to not enter the for loop and thus reach more branches.
 
 ### Overall
