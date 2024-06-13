@@ -46,6 +46,14 @@ Thijmen
 
 ![](./assets/_human_join_custom.png)
 
+#### Frank
+
+from_str
+
+[commit](https://github.com/tthijm/sep/commit/d67b17d81cd53ac4d200c0d885d19d6476e05523)
+
+![](./assets/from_str_custom.png)
+
 ## Coverage improvement
 
 ### Individual tests
@@ -80,6 +88,18 @@ test\_\_human_join
 
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
+
+#### Frank
+
+test_from_str_failures
+
+[commit](https://github.com/tthijm/sep/commit/09af7c264e06386909130526e3e8fb111e835471)
+
+![](./assets/from_str_before.png)
+
+![](./assets/from_str_after.png)
+
+The coverage of the function has improved from the originaly 85% to 100%, since the other two branches (0 and 3) were also covered.
 
 ### Overall
 
