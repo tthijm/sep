@@ -104,7 +104,7 @@ if TYPE_CHECKING:
     Response = Coroutine[Any, Any, T]
 
 
-@test(2)
+@test(3)
 async def json_or_text(response: aiohttp.ClientResponse) -> Union[Dict[str, Any], str]:
     text = await response.text(encoding='utf-8')
     try:
@@ -112,9 +112,10 @@ async def json_or_text(response: aiohttp.ClientResponse) -> Union[Dict[str, Any]
             mark(0)
             return utils._from_json(text)
     except KeyError:
+        mark(1)
         # Thanks Cloudflare
         pass
-    mark(1)
+    mark(2)
     return text
 
 
