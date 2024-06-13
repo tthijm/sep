@@ -368,4 +368,12 @@ def test_string_width():
 
     for string, expected_width in test_cases:
         assert utils._string_width(string) == expected_width
-
+        
+def test_escape_markdown():
+    assert utils.escape_markdown("") == ""
+    assert utils.escape_markdown("*hello*") == "\\*hello\\*"
+    assert utils.escape_markdown("**hello**") == "\\*\\*hello\\*\\*"
+    assert utils.escape_markdown("**hello**", as_needed=True) == "\\*\\*hello**"
+    assert utils.escape_markdown("**hello** world", as_needed=True) == "\\*\\*hello** world"
+    assert utils.escape_markdown("Visit https://example.com Please") == "Visit https://example.com Please"
+    assert utils.escape_markdown("[link](https://example.com)", ignore_links=False) == "\\[link](https://example.com)"
