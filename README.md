@@ -98,6 +98,30 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
+Maurice
+
+test_escape_markdown_before
+
+[commit] (https://github.com/tthijm/sep/commit/24b0b85075038a36dacd82dedc434a858ff342da)
+
+![](./assets/escape_markdown_before.png)
+
+![](./assets/escape_markdown_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `escape_markdown` used to not be tested, while the new `test_escape_markdown` considers every branch to be taken.
+
+test_string_width 
+
+[commit] (https://github.com/tthijm/sep/commit/1a5311c4eefde4af064bb28abed0b97659bfaee2)
+
+![](./assets/string_width_before.png)
+
+![](./assets/string_width_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `string_width ` used to not be tested, while the new `string_width` considers every branch to be taken.
+
 ### Overall
 
 <Provide a screenshot of the old coverage results by running an existing tool (the same as you already showed above)>
