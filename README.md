@@ -116,7 +116,7 @@ test_from_str_failures
 
 ![](./assets/parse_rgb_number_after.png)
 
-The coverage of the function has improved from the originaly 60% to 100%, since the other two branches (1 and 3) were also covered.
+The coverage of the function has improved from the originaly 78% to 100%, since the other two branches (1 and 3) were also covered.
 
 ### Overall
 
