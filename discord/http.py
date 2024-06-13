@@ -49,6 +49,7 @@ from urllib.parse import quote as _uriquote
 from collections import deque
 import datetime
 import socket
+from cov import test, mark
 
 import aiohttp
 
@@ -103,15 +104,17 @@ if TYPE_CHECKING:
     Response = Coroutine[Any, Any, T]
 
 
+@test(2)
 async def json_or_text(response: aiohttp.ClientResponse) -> Union[Dict[str, Any], str]:
     text = await response.text(encoding='utf-8')
     try:
         if response.headers['content-type'] == 'application/json':
+            mark(0)
             return utils._from_json(text)
     except KeyError:
         # Thanks Cloudflare
         pass
-
+    mark(1)
     return text
 
 
