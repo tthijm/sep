@@ -48,7 +48,7 @@ Running `coverage html` and opening the document in the browser gives the follow
 
 #### Frank
 
-\parse_rgb_number
+parse_rgb_number
 
 [commit](https://github.com/tthijm/sep/commit/45156c574d1be11a2da25e0f74efe866d3e2cc97)
 
@@ -91,7 +91,7 @@ The coverage has been improved, because `_human_join` used to not be tested, whi
 
 #### Frank
 
-tests\test_colour.py
+test_from_str_failures
 
 [commit](https://github.com/tthijm/sep/commit/51a7b35a9b4af8058cc9d513085b02306ae63a43)
 
