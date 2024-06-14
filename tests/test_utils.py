@@ -75,21 +75,45 @@ async def test_get_find():
     mapping = {secrets.token_bytes(32): secrets.token_bytes(32) for _ in range(100)}
 
     # Turn it into a shuffled iterable of pairs
-    pair = collections.namedtuple('pair', 'key value')
-    array = [pair(key=k, value=v) for k, v in mapping.items()]
+    tuple = collections.namedtuple('tuple', 'key value extra')
+    array = [tuple(key=k, value=v, extra=secrets.token_bytes(32)) for k, v in mapping.items()]
     random.shuffle(array)
 
     # Confirm all values can be found
-    for key, value in mapping.items():
-        # Sync get
+    for key, value, extra in array:
+        # Sync get with single attribute
         item = utils.get(array, key=key)
         assert item is not None
         assert item.value == value
 
-        # Async get
+        # Async get with single attribute
         item = await utils.get(async_iterate(array), key=key)
         assert item is not None
         assert item.value == value
+
+        # Sync get with multiple attributes
+        item = utils.get(array, key=key, extra=extra)
+        assert item is not None
+        assert item.value == value
+        assert item.extra == extra
+
+        # Async get with multiple attributes
+        item = await utils.get(async_iterate(array), key=key, extra=extra)
+        assert item is not None
+        assert item.value == value
+        assert item.extra == extra
+
+        # Sync get with empty array and single attribute
+        item = utils.get([], key=key, extra=extra)
+        assert item is None
+
+        # Async get with empty array and single attribute
+        item = await utils.get(async_iterate([]), key=key)
+        assert item is None
+
+        # Async get with empty array and multiple attributes
+        item = await utils.get(async_iterate([]), key=key, extra=extra)
+        assert item is None
 
         # Sync find
         item = utils.find(lambda i: i.key == key, array)
