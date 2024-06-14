@@ -195,7 +195,7 @@ test_from_str_failures
 
 ![](./assets/from_str_after.png)
 
-The coverage of the function has improved from the originaly 85% to 100%, since the other two branches (0 and 3) were also covered.
+The coverage of the function has improved from the original 85% to 100%, since the other two branches (0 and 3) were also covered.
 
 ### Overall
 
