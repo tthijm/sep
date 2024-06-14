@@ -71,6 +71,7 @@ import types
 import typing
 import warnings
 import logging
+from cov import test, mark
 
 import yarl
 
@@ -821,14 +822,19 @@ class SnowflakeList(_SnowflakeListBase):
         return i != len(self) and self[i] == element
 
 
+@test(4)
 def _string_width(string: str) -> int:
     """Returns string's width."""
     if string.isascii():
+        mark(1)
         return len(string)
-
+    mark(0)
     UNICODE_WIDE_CHAR_TYPE = 'WFA'
     func = unicodedata.east_asian_width
-    return sum(2 if func(char) in UNICODE_WIDE_CHAR_TYPE else 1 for char in string)
+    return sum(
+        2 if (mark(2, "_string_width"), func(char))[1] in UNICODE_WIDE_CHAR_TYPE else (1, mark(2, "_string_width"))[0]
+        for char in string
+    )
 
 
 class ResolvedInvite(NamedTuple):
