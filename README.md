@@ -46,11 +46,15 @@ flatten_literal_params
 
 ![](./assets/flatten_literal_params_custom.png)
 
-\_human_join
+\_string_width and escape_markdown
 
-[commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
+[commit](https://github.com/tthijm/sep/commit/2a0411b2ed3f982b0b0ad9c6ac99ee4d3210b2dc)
 
-![](./assets/_human_join_custom.png)
+[commit](https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
+
+![](./assets/custom_tool_maurice.png)
+
+
 
 ## Coverage improvement
 
