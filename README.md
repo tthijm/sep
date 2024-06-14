@@ -110,7 +110,7 @@ The coverage has been improved, because `_human_join` used to not be tested, whi
 
 Maurice
 
-escape_markdown
+test_escape_markdown
 
 [commit](https://github.com/tthijm/sep/commit/24b0b85075038a36dacd82dedc434a858ff342da)
 
