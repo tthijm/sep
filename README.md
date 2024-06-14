@@ -6,7 +6,7 @@ Name: discord.py
 
 URL: https://github.com/Rapptz/discord.py
 
-Number of lines of code and the tool used to count it: 68275 using `lizard discord tests setup.py`
+Number of lines of code and the tool used to count it: 68242 using `lizard discord tests setup.py`
 
 Programming language: Python
 
