@@ -949,6 +949,7 @@ def remove_markdown(text: str, *, ignore_links: bool = True) -> str:
     return re.sub(regex, replacement, text, 0, re.MULTILINE)
 
 
+@test(5)
 def escape_markdown(text: str, *, as_needed: bool = False, ignore_links: bool = True) -> str:
     r"""A helper function that escapes Discord's markdown.
 
@@ -980,16 +981,22 @@ def escape_markdown(text: str, *, as_needed: bool = False, ignore_links: bool = 
             groupdict = match.groupdict()
             is_url = groupdict.get('url')
             if is_url:
+                mark(0)
                 return is_url
+            mark(1)
             return '\\' + groupdict['markdown']
 
         regex = _MARKDOWN_STOCK_REGEX
         if ignore_links:
             regex = f'(?:{_URL_REGEX}|{regex})'
+            mark(4)
+        mark(2)
         return re.sub(regex, replacement, text, 0, re.MULTILINE)
     else:
         text = re.sub(r'\\', r'\\\\', text)
+        mark(3)
         return _MARKDOWN_ESCAPE_REGEX.sub(r'\\\1', text)
+
 
 
 def escape_mentions(text: str) -> str:
