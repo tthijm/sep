@@ -71,7 +71,6 @@ import types
 import typing
 import warnings
 import logging
-from cov import test, mark
 
 import yarl
 
@@ -822,19 +821,13 @@ class SnowflakeList(_SnowflakeListBase):
         return i != len(self) and self[i] == element
 
 
-@test(4)
 def _string_width(string: str) -> int:
     """Returns string's width."""
     if string.isascii():
-        mark(1)
         return len(string)
-    mark(0)
     UNICODE_WIDE_CHAR_TYPE = 'WFA'
     func = unicodedata.east_asian_width
-    return sum(
-        2 if (mark(2, "_string_width"), func(char))[1] in UNICODE_WIDE_CHAR_TYPE else (1, mark(3, "_string_width"))[0]
-        for char in string
-    )
+    return sum(2 if func(char) in UNICODE_WIDE_CHAR_TYPE else 1 for char in string)
 
 
 class ResolvedInvite(NamedTuple):
@@ -949,7 +942,6 @@ def remove_markdown(text: str, *, ignore_links: bool = True) -> str:
     return re.sub(regex, replacement, text, 0, re.MULTILINE)
 
 
-@test(5)
 def escape_markdown(text: str, *, as_needed: bool = False, ignore_links: bool = True) -> str:
     r"""A helper function that escapes Discord's markdown.
 
@@ -981,20 +973,15 @@ def escape_markdown(text: str, *, as_needed: bool = False, ignore_links: bool = 
             groupdict = match.groupdict()
             is_url = groupdict.get('url')
             if is_url:
-                mark(0, "escape_markdown")
                 return is_url
-            mark(1, "escape_markdown")
             return '\\' + groupdict['markdown']
 
         regex = _MARKDOWN_STOCK_REGEX
         if ignore_links:
             regex = f'(?:{_URL_REGEX}|{regex})'
-            mark(4)
-        mark(2)
         return re.sub(regex, replacement, text, 0, re.MULTILINE)
     else:
         text = re.sub(r'\\', r'\\\\', text)
-        mark(3)
         return _MARKDOWN_ESCAPE_REGEX.sub(r'\\\1', text)
 
 
