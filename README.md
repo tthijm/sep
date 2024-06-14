@@ -52,13 +52,21 @@ flatten_literal_params
 
 ![](./assets/_human_join_custom.png)
 
+Yasin
+
+_get and _aget
+
+[commit](https://github.com/tthijm/sep/commit/017ddcd6bcf0fb838a9e5b3fc427ab7a746ddce6)
+
+![](./assets/_get_custom.png)
+              
 json_or_text
 
 [commit](https://github.com/tthijm/sep/commit/c8f9434b7caa2fffe7a4b5d92a5af532f82bfb5e) +
 [commit](https://github.com/tthijm/sep/commit/17c4a758b69a2f9fed324376e5388e50df7d8089)
 Note: the second commmit is the final instrumentation
 
-![](./assets/json_or_text_custom.png)
+![](./assets/json_or_text_custom.png)              
 
 ## Coverage improvement
 
@@ -106,7 +114,19 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
+Yasin
 
+test_get_find
+
+[commit](https://github.com/tthijm/sep/commit/02cb0d7aebe7c96c9dc6d734c5a6056f08761565)
+
+![](./assets/_get_before.png)
+
+![](./assets/_get_after.png)
+
+The coverage improvement is 88%.
+The coverage has been improved, because the previous test_get_find only considered the sync and asyn get with single values. I extended the test so that it tests these functions with multiple attributes as well, this way it currently reaches more branches and therefore the coverage improved. Additionally the previous test did not consider the case where we loop through the array and we don't find the corresponding item we are looking for, we added this case by giving an empty array as argument, which causes the code to not enter the for loop and thus reach more branches.
+  
 test_json_or_text
 
 [commit](https://github.com/tthijm/sep/commit/590afe1584d3e8f2dcc0a806202ddd4f2c4d7a69)
@@ -117,7 +137,6 @@ test_json_or_text
 
 The coverage improvement is 71%.
 The coverage has been improved, because the previously there was no test for json_or_text. I now added a test that considers two cases: one where the data is a json and one where the data is plain text. This way we reach two additional branches and thus the coverage improves.
-
 
 ### Overall
 

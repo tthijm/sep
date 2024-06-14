@@ -1,4 +1,4 @@
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, Optional
 from tabulate import tabulate
 import inspect
 
@@ -29,7 +29,7 @@ def test(n_branches: int) -> Callable:
     return decorator
 
 
-def mark(branch_id: int, func_name = None) -> None:
+def mark(branch_id: int, func_name: Optional[str] = None) -> None:
     if func_name is None:
         func_name = inspect.stack()[1].function
 
