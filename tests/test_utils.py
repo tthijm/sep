@@ -75,21 +75,45 @@ async def test_get_find():
     mapping = {secrets.token_bytes(32): secrets.token_bytes(32) for _ in range(100)}
 
     # Turn it into a shuffled iterable of pairs
-    pair = collections.namedtuple('pair', 'key value')
-    array = [pair(key=k, value=v) for k, v in mapping.items()]
+    tuple = collections.namedtuple('tuple', 'key value extra')
+    array = [tuple(key=k, value=v, extra=secrets.token_bytes(32)) for k, v in mapping.items()]
     random.shuffle(array)
 
     # Confirm all values can be found
-    for key, value in mapping.items():
-        # Sync get
+    for key, value, extra in array:
+        # Sync get with single attribute
         item = utils.get(array, key=key)
         assert item is not None
         assert item.value == value
 
-        # Async get
+        # Async get with single attribute
         item = await utils.get(async_iterate(array), key=key)
         assert item is not None
         assert item.value == value
+
+        # Sync get with multiple attributes
+        item = utils.get(array, key=key, extra=extra)
+        assert item is not None
+        assert item.value == value
+        assert item.extra == extra
+
+        # Async get with multiple attributes
+        item = await utils.get(async_iterate(array), key=key, extra=extra)
+        assert item is not None
+        assert item.value == value
+        assert item.extra == extra
+
+        # Sync get with empty array and single attribute
+        item = utils.get([], key=key, extra=extra)
+        assert item is None
+
+        # Async get with empty array and single attribute
+        item = await utils.get(async_iterate([]), key=key)
+        assert item is None
+
+        # Async get with empty array and multiple attributes
+        item = await utils.get(async_iterate([]), key=key, extra=extra)
+        assert item is None
 
         # Sync find
         item = utils.find(lambda i: i.key == key, array)
@@ -334,3 +358,46 @@ def test_is_inside_class():
 )
 def test_format_dt(dt: datetime.datetime, style: typing.Optional[utils.TimestampStyle], formatted: str):
     assert utils.format_dt(dt, style=style) == formatted
+
+
+@pytest.mark.parametrize(
+    ("parameters", "flattened"),
+    [
+        # Python 3.8: Literal[Literal[0]].__args__ == (Literal[0],)
+        # Python 3.x: Literal[Literal[0]].__args__ == (0,)
+        ([], ()),
+        ([0, 1, 2], (0, 1, 2)),
+        ([0, typing.Literal["a", 1], "b"], (0, "a", 1, "b")),
+        ([0, "a", typing.Literal[1, "b", 2], typing.Literal["c"]], (0, "a", 1, "b", 2, "c")),
+    ],
+)
+def test_flatten_literal_params(parameters: typing.Iterable[typing.Any], flattened: typing.Tuple[typing.Any, ...]) -> None:
+    assert utils.flatten_literal_params(parameters) == flattened
+
+
+def test__human_join() -> None:
+    assert utils._human_join([]) == ""
+    assert utils._human_join(["cat"]) == "cat"
+    assert utils._human_join(["cat", "dog"]) == "cat or dog"
+    assert utils._human_join(["cat", "dog", "fish"]) == "cat, dog or fish"
+    assert utils._human_join(["cat", "dog", "fish", "bird"], delimiter="; ", final="and") == "cat; dog; fish and bird"
+
+def test_string_width():
+    test_cases = [("", 0),("a", 1),("hello", 5),("hello\tworld", 11),("a" * 1000, 1000)]
+    
+    for string, expected_width in test_cases:
+        assert utils._string_width(string) == expected_width
+
+    test_cases = [("你" * 500, 1000),("hello 你好 world", 16),("你好", 4),("你", 2)]
+
+    for string, expected_width in test_cases:
+        assert utils._string_width(string) == expected_width
+        
+def test_escape_markdown():
+    assert utils.escape_markdown("") == ""
+    assert utils.escape_markdown("*hello*") == "\\*hello\\*"
+    assert utils.escape_markdown("**hello**") == "\\*\\*hello\\*\\*"
+    assert utils.escape_markdown("**hello**", as_needed=True) == "\\*\\*hello**"
+    assert utils.escape_markdown("**hello** world", as_needed=True) == "\\*\\*hello** world"
+    assert utils.escape_markdown("Visit https://example.com Please") == "Visit https://example.com Please"
+    assert utils.escape_markdown("[link](https://example.com)", ignore_links=False) == "\\[link](https://example.com)"
