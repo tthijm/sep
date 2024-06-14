@@ -46,7 +46,13 @@ flatten_literal_params
 
 ![](./assets/flatten_literal_params_custom.png)
 
-Maurice 
+\_human_join
+
+[commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
+
+![](./assets/_human_join_custom.png)
+
+Maurice
 
 \_string_width
 
@@ -60,23 +66,21 @@ escape_markdown
 
 ![](./assets/escape_markdown_custom.png)
 
-
-
 Yasin
 
-_get and _aget
+\_get and \_aget
 
 [commit](https://github.com/tthijm/sep/commit/017ddcd6bcf0fb838a9e5b3fc427ab7a746ddce6)
 
 ![](./assets/_get_custom.png)
-              
+
 json_or_text
 
 [commit](https://github.com/tthijm/sep/commit/c8f9434b7caa2fffe7a4b5d92a5af532f82bfb5e) +
 [commit](https://github.com/tthijm/sep/commit/17c4a758b69a2f9fed324376e5388e50df7d8089)
 Note: the second commmit is the final instrumentation
 
-![](./assets/json_or_text_custom.png)              
+![](./assets/json_or_text_custom.png)
 
 ## Coverage improvement
 
@@ -124,7 +128,6 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
-
 Maurice
 
 test_escape_markdown
@@ -138,7 +141,7 @@ test_escape_markdown
 The coverage improvement is +100%.
 The coverage has been improved, because `escape_markdown` used to not be tested, while the new `test_escape_markdown` considers every branch to be taken.
 
-test_string_width 
+test_string_width
 
 [commit](https://github.com/tthijm/sep/commit/1a5311c4eefde4af064bb28abed0b97659bfaee2)
 [commit] (https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
@@ -149,7 +152,7 @@ test_string_width
 
 The coverage improvement is +100%.
 The coverage has been improved, because `string_width` used to not be tested, while the new `string_width` considers every branch to be taken.
-             
+
 Yasin
 
 test_get_find
@@ -162,7 +165,7 @@ test_get_find
 
 The coverage improvement is 88%.
 The coverage has been improved, because the previous test_get_find only considered the sync and asyn get with single values. I extended the test so that it tests these functions with multiple attributes as well, this way it currently reaches more branches and therefore the coverage improved. Additionally the previous test did not consider the case where we loop through the array and we don't find the corresponding item we are looking for, we added this case by giving an empty array as argument, which causes the code to not enter the for loop and thus reach more branches.
-  
+
 test_json_or_text
 
 [commit](https://github.com/tthijm/sep/commit/590afe1584d3e8f2dcc0a806202ddd4f2c4d7a69)
