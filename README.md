@@ -38,7 +38,7 @@ Running `coverage html` and opening the document in the browser gives the follow
 
 <Provide the same kind of information provided for Function 1>
 
-Thijmen
+#### Thijmen
 
 flatten_literal_params
 
@@ -52,7 +52,7 @@ flatten_literal_params
 
 ![](./assets/_human_join_custom.png)
 
-Maurice
+#### Maurice
 
 \_string_width
 
@@ -66,7 +66,7 @@ escape_markdown
 
 ![](./assets/escape_markdown_custom.png)
 
-Yasin
+#### Yasin
 
 \_get and \_aget
 
@@ -81,6 +81,14 @@ json_or_text
 Note: the second commmit is the final instrumentation
 
 ![](./assets/json_or_text_custom.png)
+
+#### Frank
+
+from_str
+
+[commit](https://github.com/tthijm/sep/commit/d67b17d81cd53ac4d200c0d885d19d6476e05523)
+
+![](./assets/from_str_custom.png)
 
 ## Coverage improvement
 
@@ -104,7 +112,7 @@ Note: the second commmit is the final instrumentation
 
 <Provide the same kind of information provided for Test 1>
 
-Thijmen
+#### Thijmen
 
 test_flatten_literal_params
 
@@ -128,7 +136,7 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
-Maurice
+#### Maurice
 
 test_escape_markdown
 
@@ -153,7 +161,7 @@ test_string_width
 The coverage improvement is +100%.
 The coverage has been improved, because `string_width` used to not be tested, while the new `string_width` considers every branch to be taken.
 
-Yasin
+#### Yasin
 
 test_get_find
 
@@ -176,6 +184,18 @@ test_json_or_text
 
 The coverage improvement is 71%.
 The coverage has been improved, because the previously there was no test for json_or_text. I now added a test that considers two cases: one where the data is a json and one where the data is plain text. This way we reach two additional branches and thus the coverage improves.
+
+#### Frank
+
+test_from_str_failures
+
+[commit](https://github.com/tthijm/sep/commit/)
+
+![](./assets/from_str_before.png)
+
+![](./assets/from_str_after.png)
+
+The coverage of the function has improved from the originaly 85% to 100%, since the other two branches (0 and 3) were also covered.
 
 ### Overall
 
