@@ -825,7 +825,6 @@ def _string_width(string: str) -> int:
     """Returns string's width."""
     if string.isascii():
         return len(string)
-
     UNICODE_WIDE_CHAR_TYPE = 'WFA'
     func = unicodedata.east_asian_width
     return sum(2 if func(char) in UNICODE_WIDE_CHAR_TYPE else 1 for char in string)

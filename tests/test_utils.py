@@ -381,3 +381,23 @@ def test__human_join() -> None:
     assert utils._human_join(["cat", "dog"]) == "cat or dog"
     assert utils._human_join(["cat", "dog", "fish"]) == "cat, dog or fish"
     assert utils._human_join(["cat", "dog", "fish", "bird"], delimiter="; ", final="and") == "cat; dog; fish and bird"
+
+def test_string_width():
+    test_cases = [("", 0),("a", 1),("hello", 5),("hello\tworld", 11),("a" * 1000, 1000)]
+    
+    for string, expected_width in test_cases:
+        assert utils._string_width(string) == expected_width
+
+    test_cases = [("你" * 500, 1000),("hello 你好 world", 16),("你好", 4),("你", 2)]
+
+    for string, expected_width in test_cases:
+        assert utils._string_width(string) == expected_width
+        
+def test_escape_markdown():
+    assert utils.escape_markdown("") == ""
+    assert utils.escape_markdown("*hello*") == "\\*hello\\*"
+    assert utils.escape_markdown("**hello**") == "\\*\\*hello\\*\\*"
+    assert utils.escape_markdown("**hello**", as_needed=True) == "\\*\\*hello**"
+    assert utils.escape_markdown("**hello** world", as_needed=True) == "\\*\\*hello** world"
+    assert utils.escape_markdown("Visit https://example.com Please") == "Visit https://example.com Please"
+    assert utils.escape_markdown("[link](https://example.com)", ignore_links=False) == "\\[link](https://example.com)"

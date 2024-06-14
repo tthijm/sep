@@ -46,11 +46,21 @@ flatten_literal_params
 
 ![](./assets/flatten_literal_params_custom.png)
 
-\_human_join
+Maurice 
 
-[commit](https://github.com/tthijm/sep/commit/88c98ebc05c4d67bcdce7d3046ffa786f79b9284)
+\_string_width
 
-![](./assets/_human_join_custom.png)
+[commit](https://github.com/tthijm/sep/commit/2a0411b2ed3f982b0b0ad9c6ac99ee4d3210b2dc)
+
+![](./assets/string_width_custom.png)
+
+escape_markdown
+
+[commit](https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
+
+![](./assets/escape_markdown_custom.png)
+
+
 
 Yasin
 
@@ -114,6 +124,32 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
+
+Maurice
+
+test_escape_markdown
+
+[commit](https://github.com/tthijm/sep/commit/24b0b85075038a36dacd82dedc434a858ff342da)
+
+![](./assets/escape_markdown_before.png)
+
+![](./assets/escape_markdown_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `escape_markdown` used to not be tested, while the new `test_escape_markdown` considers every branch to be taken.
+
+test_string_width 
+
+[commit](https://github.com/tthijm/sep/commit/1a5311c4eefde4af064bb28abed0b97659bfaee2)
+[commit] (https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
+
+![](./assets/string_width_before.png)
+
+![](./assets/string_width_after.png)
+
+The coverage improvement is +100%.
+The coverage has been improved, because `string_width` used to not be tested, while the new `string_width` considers every branch to be taken.
+             
 Yasin
 
 test_get_find
