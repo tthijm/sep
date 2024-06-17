@@ -82,6 +82,14 @@ Note: the second commmit is the final instrumentation
 
 ![](./assets/json_or_text_custom.png)
 
+Frank
+
+from_str
+
+[commit](https://github.com/tthijm/sep/commit/51d176fb44faf01d429e81d5cbd5673fb4b42a8b)
+
+![](./assets/from_str_custom.png)
+
 ## Coverage improvement
 
 ### Individual tests
@@ -176,6 +184,18 @@ test_json_or_text
 
 The coverage improvement is 71%.
 The coverage has been improved, because the previously there was no test for json_or_text. I now added a test that considers two cases: one where the data is a json and one where the data is plain text. This way we reach two additional branches and thus the coverage improves.
+
+Frank
+
+test_from_str_failures
+
+[commit](https://github.com/tthijm/sep/commit/d5de3d9bd413d9ddab2facc30d57f3016284db57)
+
+![](./assets/from_str_before.png)
+
+![](./assets/from_str_after.png)
+
+The coverage improved from 85% to 100%. Since the tests resulted in each of the if statements to trigger, each of the two missing branches were also covered.
 
 ### Overall
 
