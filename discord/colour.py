@@ -26,6 +26,7 @@ from __future__ import annotations
 import colorsys
 import random
 import re
+from cov import test, mark
 
 from typing import TYPE_CHECKING, Optional, Tuple, Union
 
@@ -174,6 +175,7 @@ class Colour:
         rgb = colorsys.hsv_to_rgb(h, s, v)
         return cls.from_rgb(*(int(x * 255) for x in rgb))
 
+    @test(7)
     @classmethod
     def from_str(cls, value: str) -> Colour:
         """Constructs a :class:`Colour` from a string.
@@ -197,22 +199,29 @@ class Colour:
         """
 
         if not value:
+            mark(0)
             raise ValueError('unknown colour format given')
 
         if value[0] == '#':
+            mark(1)
             return parse_hex_number(value[1:])
 
         if value[0:2] == '0x':
+            mark(2)
             rest = value[2:]
             # Legacy backwards compatible syntax
             if rest.startswith('#'):
+                mark(3)
                 return parse_hex_number(rest[1:])
+            mark(4)
             return parse_hex_number(rest)
 
         arg = value.lower()
         if arg[0:3] == 'rgb':
+            mark(5)
             return parse_rgb(arg)
 
+        mark(6)
         raise ValueError('unknown colour format given')
 
     @classmethod
