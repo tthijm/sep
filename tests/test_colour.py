@@ -62,6 +62,8 @@ def test_from_str(value, expected):
         'rgb(30, -1, 60)',
         'invalid(a, b, c)',
         'rgb(',
+        '',
+        '0x#',
     ],
 )
 def test_from_str_failures(value):
