@@ -64,6 +64,8 @@ def test_from_str(value, expected):
         'rgb(',
         '',
         '0x#',
+        'rgb(120%,100%,90%)',
+        'rgb(320,300,300)',
     ],
 )
 def test_from_str_failures(value):

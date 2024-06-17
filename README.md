@@ -38,7 +38,7 @@ Running `coverage html` and opening the document in the browser gives the follow
 
 <Provide the same kind of information provided for Function 1>
 
-Thijmen
+#### Thijmen
 
 flatten_literal_params
 
@@ -52,7 +52,7 @@ flatten_literal_params
 
 ![](./assets/_human_join_custom.png)
 
-Maurice
+#### Maurice
 
 \_string_width
 
@@ -66,7 +66,7 @@ escape_markdown
 
 ![](./assets/escape_markdown_custom.png)
 
-Yasin
+#### Yasin
 
 \_get and \_aget
 
@@ -82,7 +82,13 @@ Note: the second commmit is the final instrumentation
 
 ![](./assets/json_or_text_custom.png)
 
-Frank
+#### Frank
+
+parse_rgb_number
+
+[commit](https://github.com/tthijm/sep/commit/45156c574d1be11a2da25e0f74efe866d3e2cc97)
+
+![](./assets/parse_rgb_number_custom.png)
 
 from_str
 
@@ -112,7 +118,7 @@ from_str
 
 <Provide the same kind of information provided for Test 1>
 
-Thijmen
+#### Thijmen
 
 test_flatten_literal_params
 
@@ -136,7 +142,7 @@ test\_\_human_join
 The coverage improvement is +100%.
 The coverage has been improved, because `_human_join` used to not be tested, while the new `test__human_join` considers every branch to be taken.
 
-Maurice
+#### Maurice
 
 test_escape_markdown
 
@@ -161,7 +167,7 @@ test_string_width
 The coverage improvement is +100%.
 The coverage has been improved, because `string_width` used to not be tested, while the new `string_width` considers every branch to be taken.
 
-Yasin
+#### Yasin
 
 test_get_find
 
@@ -185,7 +191,17 @@ test_json_or_text
 The coverage improvement is 71%.
 The coverage has been improved, because the previously there was no test for json_or_text. I now added a test that considers two cases: one where the data is a json and one where the data is plain text. This way we reach two additional branches and thus the coverage improves.
 
-Frank
+#### Frank
+
+test_from_str_failures
+
+[commit](https://github.com/tthijm/sep/commit/51a7b35a9b4af8058cc9d513085b02306ae63a43)
+
+![](./assets/parse_rgb_number_before.png)
+
+![](./assets/parse_rgb_number_after.png)
+
+The coverage of the function has improved from the original 78% to 100%, since the other two branches (1 and 3) were also covered.
 
 test_from_str_failures
 
