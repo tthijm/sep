@@ -194,3 +194,24 @@ The total coverage after adding our own tests
 ## Statement of individual contributions
 
 <Write what each group member did>
+
+#### Thijmen
+
+- Created a custom coverage tool (https://github.com/tthijm/sep/pull/2)
+- Measured and increased the coverage of `flatten_literal_params` (https://github.com/tthijm/sep/pull/5)
+- Measured and increased the coverage of `_human_join` (https://github.com/tthijm/sep/pull/6)
+
+#### Maurice
+
+- Measured and increased the coverage of `_string_width` (https://github.com/tthijm/sep/pull/17)
+- Measured and increased the coverage of `escape_markdown` (https://github.com/tthijm/sep/pull/17)
+
+#### Yasin
+
+- Measured and increased the coverage of `_get` and `_aget` (https://github.com/tthijm/sep/pull/11)
+- Measured and increased the coverage of `json_or_text` (https://github.com/tthijm/sep/pull/13)
+
+#### Frank
+
+- Measured and increased the coverage of `parse_rgb_number` (https://github.com/tthijm/sep/pull/8)
+- Measured and increased the coverage of `from_str` (https://github.com/tthijm/sep/pull/19)
