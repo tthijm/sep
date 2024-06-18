@@ -90,6 +90,12 @@ parse_rgb_number
 
 ![](./assets/parse_rgb_number_custom.png)
 
+from_str
+
+[commit](https://github.com/tthijm/sep/commit/51d176fb44faf01d429e81d5cbd5673fb4b42a8b)
+
+![](./assets/from_str_custom.png)
+
 ## Coverage improvement
 
 ### Individual tests
@@ -196,6 +202,16 @@ test_from_str_failures
 ![](./assets/parse_rgb_number_after.png)
 
 The coverage of the function has improved from the original 78% to 100%, since the other two branches (1 and 3) were also covered.
+
+test_from_str_failures
+
+[commit](https://github.com/tthijm/sep/commit/d5de3d9bd413d9ddab2facc30d57f3016284db57)
+
+![](./assets/from_str_before.png)
+
+![](./assets/from_str_after.png)
+
+The coverage improved from 85% to 100%. Since the tests resulted in each of the if statements to trigger, each of the two missing branches were also covered.
 
 ### Overall
 
