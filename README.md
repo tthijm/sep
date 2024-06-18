@@ -183,9 +183,11 @@ The coverage improved from 85% to 100%. Since the tests resulted in each of the 
 
 ### Overall
 
-<Provide a screenshot of the old coverage results by running an existing tool (the same as you already showed above)>
+The total coverage before adding our own tests
 
 ![](./assets/coverage_run_before.png)
+
+The total coverage after adding our own tests
 
 ![](./assets/coverage_run_after.png)
 
