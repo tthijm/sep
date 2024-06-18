@@ -195,7 +195,7 @@ The total coverage after adding our own tests
 
 #### Thijmen
 
-- Created a custom coverage tool (https://github.com/tthijm/sep/pull/2)
+- Created a custom coverage tool [`cov`](https://github.com/tthijm/sep/tree/a9bede17cf39fb44b606dc1e1cfdf3bcf4aa4340/cov) (https://github.com/tthijm/sep/pull/2)
 - Measured and increased the coverage of [`flatten_literal_params`](https://github.com/tthijm/sep/blob/0e58a927ddbc300a17ef0137d948faa659565313/discord/utils.py#L1087)(https://github.com/tthijm/sep/pull/5)
 - Measured and increased the coverage of [`_human_join`](https://github.com/tthijm/sep/blob/0e58a927ddbc300a17ef0137d948faa659565313/discord/utils.py#L1397)(https://github.com/tthijm/sep/pull/6)
 
