@@ -193,8 +193,6 @@ The total coverage after adding our own tests
 
 ## Statement of individual contributions
 
-<Write what each group member did>
-
 #### Thijmen
 
 - Created a custom coverage tool (https://github.com/tthijm/sep/pull/2)
