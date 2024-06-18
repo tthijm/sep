@@ -125,8 +125,8 @@ The coverage has been improved, because `escape_markdown` used to not be tested,
 
 test_string_width
 
-[commit](https://github.com/tthijm/sep/commit/1a5311c4eefde4af064bb28abed0b97659bfaee2)
-[commit] (https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
+[commit](https://github.com/tthijm/sep/commit/1a5311c4eefde4af064bb28abed0b97659bfaee2) +
+[commit](https://github.com/tthijm/sep/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
 
 ![](./assets/string_width_before.png)
 
