@@ -185,6 +185,8 @@ The coverage improved from 85% to 100%. Since the tests resulted in each of the 
 
 <Provide a screenshot of the old coverage results by running an existing tool (the same as you already showed above)>
 
+![](./assets/coverage_run_before.png)
+
 ![](./assets/coverage_run_after.png)
 
 ## Statement of individual contributions
