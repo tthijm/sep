@@ -42,7 +42,8 @@ Running `coverage html` and opening the document in the browser gives the follow
 
 [`_string_width`](https://github.com/tthijm/sep-1/blob/0e58a927ddbc300a17ef0137d948faa659565313/discord/utils.py#L824)
 
-[commit](https://github.com/tthijm/sep-1/commit/2a0411b2ed3f982b0b0ad9c6ac99ee4d3210b2dc)
+[commit](https://github.com/tthijm/sep-1/commit/2a0411b2ed3f982b0b0ad9c6ac99ee4d3210b2dc) +
+[commit](https://github.com/tthijm/sep-1/commit/fa81a81e90b4623bbaf7e9a2ee2d46e4f26556e9)
 
 ![](./assets/string_width_custom.png)
 
